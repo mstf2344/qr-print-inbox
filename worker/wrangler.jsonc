@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "qr-file-inbox",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-10",
+  "workers_dev": true,
+  "vars": {"USE_COMPATIBLE_AGENT": "true"},
+  "services": [{"binding": "COMPATIBLE_SERVICE", "service": "qr-file-inbox-relay"}],
+  "assets": {
+    "directory": "../web",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "observability": { "enabled": false }
+}

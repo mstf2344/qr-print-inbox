@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Dosyalarınızı gönderin</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <span class="wordmark">DOSYA GÖNDER</span>
+      <h1>Dosyalarınızı gönderin.<br>Bilgisayarınıza ulaşsın.</h1>
+      <p>QR kodunu açın, dosyalarınızı seçin ve doğrudan aktarın.</p>
+    </header>
+    <section id="upload-panel" aria-label="Dosya yükleme">
+      <input id="files" type="file" multiple accept=".pdf,.docx,.pptx,.xlsx,.jpg,.jpeg,.png" hidden>
+      <button class="dropzone" id="choose" type="button" aria-describedby="formats limits">
+        <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 23V5m-7 7 7-7 7 7M5 22v5h22v-5"/></svg>
+        <strong>Dosya seçin</strong>
+        <span>veya buraya sürükleyin</span>
+      </button>
+      <p id="formats" class="hint">PDF, Word, Excel, PowerPoint, JPG veya PNG</p>
+      <p id="limits" class="hint">Dosya başına 25 MB · En fazla 10 dosya</p>
+      <ul id="file-list" aria-label="Seçilen dosyalar"></ul>
+      <div id="activity" hidden>
+        <p id="progress-label" role="status" aria-live="polite"></p>
+        <progress id="progress" value="0" max="100" aria-label="Dosya yükleme ilerlemesi"></progress>
+      </div>
+      <p id="error" role="alert" hidden></p>
+      <button id="send" class="primary" type="button" disabled>Dosyaları gönder</button>
+      <button id="restart" class="secondary" type="button" hidden>Dosyaları yeniden seç</button>
+      <p class="footnote">Aktarım bitince gönderim numaranız burada görünecek.<br>Dosyalar 14 gün sonra otomatik silinir.</p>
+    </section>
+    <section id="receipt" aria-live="polite" tabindex="-1" hidden>
+      <span class="receipt-check" aria-hidden="true">✓</span>
+      <h2>Dosyalarınız ulaştı.</h2>
+      <p>Gönderim numaranız</p>
+      <strong id="number"></strong>
+      <p>Dosyalarınızı bu numarayla bulabilirsiniz.</p>
+      <button id="again" class="secondary" type="button">Yeni dosya gönder</button>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "$schema": "../worker/node_modules/wrangler/config-schema.json",
+  "name": "qr-file-inbox-relay",
+  "main": "src.js",
+  "compatibility_date": "2026-10-10",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {"directory": "../web", "binding": "ASSETS", "run_worker_first": true,
+    "html_handling": "none", "not_found_handling": "none"},
+  "durable_objects": {"bindings": [{"name": "RELAY", "class_name": "Relay"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["Relay"]}],
+  "observability": {"enabled": false}
+}
